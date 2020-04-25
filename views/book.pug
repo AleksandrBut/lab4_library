@@ -1,0 +1,30 @@
+extends layout
+
+mixin rowValue(value, id)
+    if isEditMode && id !== 'id'
+        input.row_value(type = 'text' id = id, value = value)
+    else
+        span.row_value(id = id) #{value}
+
+block content
+
+    button.button_back_to_library(onclick='goToLibraryPage()') <- Back to library
+    h1.centred_header Book card: #{book.name}
+    if !book.takenBy
+        .centered_block
+            h2.centred_header.book_available AVAILABLE
+            if !isEditMode
+                button.book_action_button(onclick='takeBook()') Take book
+    else
+        .centered_block
+            h2.centred_header.book_unavailable Unavailable. Taken by #{book.takenBy} to #{book.takenTo}
+            if !isEditMode
+                button.book_action_button(onclick='returnBook()') Return book
+
+    if !isEditMode
+        button(onclick='reloadPage(true)') Edit
+    else
+        button(onclick='reloadPage(false)') Cancel
+        button(onclick='saveBookInfo()') Save
+
+    include bookInfo

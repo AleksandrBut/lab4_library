@@ -1,0 +1,42 @@
+extends layout
+
+mixin selectorSortOption(value)
+    if value === 'none'
+        if !sortType
+            option(value=value, selected=true) #{value}
+        else
+            option(value=value) #{value}
+    else if value === 'availability'
+        if sortType === value
+            option(value=value, selected=true) #{value}
+        else
+            option(value=value) #{value}
+    else if value === 'availabilityDate'
+        if sortType === 'availabilityDate'
+            option(value=value, selected=true) "unavailable to" date
+        else
+            option(value=value) "unavailable to" date
+
+block content
+    h1.centred_header Welcome to the Library!
+    h2.centred_header All books:
+
+    .library_sort_params_wrapper
+        .add_book_button
+            button(onclick='location.href = "library/book"') Add book
+        .library_sort_params
+            label Sort by
+                select#sortType(onchange='doSort()')
+                    +selectorSortOption('none')
+                    +selectorSortOption('availabilityDate')
+                    +selectorSortOption('availability')
+    .wrapper
+        div
+            ul.books_list
+                if books.length > 0
+                    each book in books
+                        li(class=`row ${!book.takenBy ? 'available' : 'unavailable'}`)
+                            a(href=`library/book/${book.id}`) #{book.name}. #{book.author} (#{book.year} year, #{book.pagesCount} pages)
+                            button.book_action_button.delete_book_button(id=book.id onclick='deleteBook(this.id)') Remove
+                else
+                    h2.centred_header The library is empty. Please add some books

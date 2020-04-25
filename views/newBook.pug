@@ -1,0 +1,8 @@
+extends book
+
+block content
+    h1.centred_header Add new book to library
+    button.button_back_to_library(onclick='location.href="../library"') Cancel
+    button.book_action_button(onclick='addBook()') Save
+
+    include bookInfo

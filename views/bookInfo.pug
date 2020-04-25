@@ -1,0 +1,18 @@
+div.wrapper
+    div.book_info
+        if !isAddMode
+            div.row
+                span.bold_text Id:
+                +rowValue(`${book ? book.id : ''}`, 'id')
+        div.row
+            span.bold_text Name:
+            +rowValue(`${book ? book.name : ''}`, 'name')
+        div.row
+            span.bold_text Author:
+            +rowValue(`${book ? book.author : ''}`, 'author')
+        div.row
+            span.bold_text Year:
+            +rowValue(`${book ? book.year : ''}`, 'year')
+        div.row
+            span.bold_text Pages count:
+            +rowValue(`${book ? book.pagesCount : ''}`, 'pagesCount')

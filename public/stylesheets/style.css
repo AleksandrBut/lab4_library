@@ -1,0 +1,113 @@
+body {
+    padding: 50px;
+    font: large "Lucida Grande", Helvetica, Arial, sans-serif;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #edfcff;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: #e08800;
+}
+
+.centred_header {
+    text-align: center;
+}
+
+.books_list li {
+    list-style: none;
+}
+
+.books_list li::before {
+    content: "·";
+    font-size: 120px;
+    vertical-align: middle;
+    line-height: 20px;
+}
+
+.books_list li.available {
+    color: green;
+}
+
+.books_list li.unavailable {
+    color: red;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-top: 1.5rem;
+    background-color: #f5fff8;
+}
+
+.row {
+    margin: 1rem 0.5rem;
+    align-items: flex-start;
+}
+
+.row_value {
+    margin-left: 1rem;
+}
+
+.bold_text {
+    font-weight: bold;
+}
+
+.book_unavailable {
+    color: darkred;
+}
+
+.book_available {
+    color: darkgreen;
+}
+
+.library_sort_params_wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.library_sort_params {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 50%;
+}
+
+.library_sort_params select {
+    margin-left: 0.5rem;
+}
+
+.centered_block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.book_action_button {
+    margin-left: 1rem;
+}
+
+.delete_book_button {
+    float: right;
+}
+
+.add_book_button {
+    width: 50%;
+}
