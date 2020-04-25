@@ -25,6 +25,6 @@ block content
         button(onclick='reloadPage(true)') Edit
     else
         button(onclick='reloadPage(false)') Cancel
-        button(onclick='saveBookInfo()') Save
+        button.book_action_button(onclick='saveBookInfo()') Save
 
     include bookInfo
